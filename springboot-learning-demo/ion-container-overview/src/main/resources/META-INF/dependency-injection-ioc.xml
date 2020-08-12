@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <import resource="dependency-lookup-ioc.xml"/>
+
+
+    <!--    Could not autowire. There is more than one bean of 'Collection<User>' type.
+            这个错误不影响程序运行，warning 级别的，程序中有多个 User 的实现类
+     -->
+    <bean id="userRepository" class="com.spring.ioc.dependencies.dao.UserRepository"
+          autowire="byType">
+        <!--  加上 autowire 属性，容器会自动注入bean对象      -->
+        <!--  手动配置       -->
+        <!--        <property name="users">-->
+        <!--            <util:list>-->
+        <!--                <ref bean="user" />-->
+        <!--                <ref bean="superUser"/>-->
+        <!--            </util:list>-->
+        <!--        </property>-->
+    </bean>
+
+</beans>
