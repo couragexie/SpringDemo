@@ -17,6 +17,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ElasticJobConfig {
 
+    /**
+     * 注入注册中心
+     * */
     @Autowired
     private ZookeeperRegistryCenter registryCenter;
 
@@ -29,7 +32,7 @@ public class ElasticJobConfig {
     }
 
 
-    /*
+    /**
     * liteJobConfiguration 核心配置
     * */
     public LiteJobConfiguration getliteJobConfiguration(
